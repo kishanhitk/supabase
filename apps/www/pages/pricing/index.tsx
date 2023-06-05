@@ -316,7 +316,7 @@ export default function IndexPage() {
                   {tierEnterprise.description}
                 </p>
 
-                <a href={tierEnterprise.href} className='hidden lg:visible'>
+                <a href={tierEnterprise.href} className="hidden lg:visible">
                   <Button type="default" size="small">
                     {tierEnterprise.cta}
                   </Button>
@@ -338,12 +338,11 @@ export default function IndexPage() {
                 ))}
               </ul>
 
-
-              <a href={tierEnterprise.href} className='visible lg:hidden  mt-4'>
-                  <Button block type="default" size="small">
-                    {tierEnterprise.cta}
-                  </Button>
-                </a>
+              <a href={tierEnterprise.href} className="visible lg:hidden  mt-4">
+                <Button block type="default" size="small">
+                  {tierEnterprise.cta}
+                </Button>
+              </a>
             </div>
           </div>
         </div>
