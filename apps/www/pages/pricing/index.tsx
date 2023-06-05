@@ -25,6 +25,9 @@ export default function IndexPage() {
   const meta_description =
     'Explore Supabase fees and pricing information. Find our competitive pricing tiers, with no hidden pricing. We have a generous free plan for those getting started, and Pay As You Go for those scaling up.'
 
+  const tiersExceptEnterprise = tiers.filter((it) => it.name !== 'Enterprise')
+  const tierEnterprise = tiers.find((it) => it.name === 'Enterprise')!
+
   // Ability to scroll into pricing sections like storage
   useEffect(() => {
     /**
@@ -156,7 +159,7 @@ export default function IndexPage() {
           </div>
         </div>
 
-        <div className="mx-auto flex flex-col">
+        <div className="mx-auto max-w-7xl flex flex-col">
           {/* <div className="absolute inset-0 shadow-sm bg-scale-200 h-3/5" /> */}
 
           <div
@@ -165,8 +168,8 @@ export default function IndexPage() {
             lg:px-8
           "
           >
-            <div className="mx-auto max-w-md grid lg:max-w-[1150px] xl:max-w-[1300px] lg:grid-cols-2 xl:grid-cols-4 gap-24 lg:gap-5">
-              {tiers.map((tier) => (
+            <div className="mx-auto max-w-md grid lg:max-w-6xl lg:grid-cols-3 gap-24 lg:gap-5">
+              {tiersExceptEnterprise.map((tier) => (
                 <div
                   key={`row-${tier.name}`}
                   className={[
@@ -295,6 +298,52 @@ export default function IndexPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto">
+          <div className="max-w-md lg:max-w-6xl grid lg:grid-cols-2 mx-auto border bg-scale-100 rounded-md px-8 lg:px-16 py-6 mt-8 gap-x-16">
+            <div className="flex flex-col justify-center">
+              <div>
+                <h3
+                  className="gradient-text-brand-500 dark:gradient-text-brand-100 text-2xl font-normal
+                           uppercase flex items-center gap-4 font-mono"
+                >
+                  {tierEnterprise.name}
+                </h3>
+                <p className="text-scale-1100 my-4 text-sm pb-4 2xl:pr-4">
+                  {tierEnterprise.description}
+                </p>
+
+                <a href={tierEnterprise.href} className='hidden lg:visible'>
+                  <Button type="default" size="small">
+                    {tierEnterprise.cta}
+                  </Button>
+                </a>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center">
+              <ul role="list" className="text-xs text-scale-1000">
+                {tierEnterprise.features.map((feature) => (
+                  <li key={feature} className="flex items-center py-2 first:mt-0">
+                    <IconCheck
+                      className="text-brand-900 h-4 w-4 "
+                      aria-hidden="true"
+                      strokeWidth={3}
+                    />
+                    {/* </div> */}
+                    <span className="dark:text-scale-1200 mb-0 ml-3 ">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+
+              <a href={tierEnterprise.href} className='visible lg:hidden  mt-4'>
+                  <Button block type="default" size="small">
+                    {tierEnterprise.cta}
+                  </Button>
+                </a>
             </div>
           </div>
         </div>
