@@ -165,7 +165,7 @@ export default function IndexPage() {
             lg:px-8
           "
           >
-            <div className="mx-auto max-w-md grid lg:max-w-[1200px] xl:max-w-[1500px] lg:grid-cols-2 xl:grid-cols-4 gap-24 lg:gap-5">
+            <div className="mx-auto max-w-md grid lg:max-w-[1150px] xl:max-w-[1300px] lg:grid-cols-2 xl:grid-cols-4 gap-24 lg:gap-5">
               {tiers.map((tier) => (
                 <div
                   key={`row-${tier.name}`}
@@ -205,7 +205,7 @@ export default function IndexPage() {
                           )}
                         </div>
                       </div>
-                      <p className="text-scale-1100 my-4 text-sm  border-b dark:border-scale-500 pb-4 2xl:pr-20">
+                      <p className="text-scale-1100 my-4 text-sm  border-b dark:border-scale-500 pb-4 2xl:pr-4">
                         {tier.description}
                       </p>
 
